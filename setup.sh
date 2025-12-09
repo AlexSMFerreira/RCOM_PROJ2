@@ -61,9 +61,9 @@ echo "TUXY4 if_e2 IP configured: $ip_tuxy4_ife2/24"
 
 echo "Enabling IP forwarding and configuring ICMP..."
 # Enable IP forwarding
-sshpass -p $password ssh -o StrictHostKeyChecking=no ${tux_name}4 sysctl net.ipv4.ip_forward=1 || { echo "Error: Failed to enable IP forwarding"; exit 1; }
+sshpass -p $password ssh -o StrictHostKeyChecking=no ${tux_name}4 echo $password | sudo -S sysctl net.ipv4.ip_forward=1 || { echo "Error: Failed to enable IP forwarding"; exit 1; }
 # Disable ICMP echo ignore broadcast
-sshpass -p $password ssh -o StrictHostKeyChecking=no ${tux_name}4 sysctl net.ipv4.icmp_echo_ignore_broadcasts=0 || { echo "Error: Failed to configure ICMP"; exit 1; }
+sshpass -p $password ssh -o StrictHostKeyChecking=no ${tux_name}4 echo $password | sudo -S sysctl net.ipv4.icmp_echo_ignore_broadcasts=0 || { echo "Error: Failed to configure ICMP"; exit 1; }
 echo "TUXY4 router configuration complete"
 
 echo "=== Network configuration complete ==="
