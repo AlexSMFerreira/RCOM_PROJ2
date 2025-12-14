@@ -82,22 +82,22 @@ read -p "Connect to Router Console. Press any key to continue..."
 
 # Configure router via serial console (No sudo needed here usually, but handled by run_raw)
 echo "Configuring Router via Serial..."
-run_raw 2 "echo -e '/ip address add address=172.16.101.254/24 interface=ether2\r' > /dev/ttyS0" 
-run_raw 2 "echo -e '/ip address add address=172.16.1.101/24 interface=ether1\r' > /dev/ttyS0" 
-run_raw 2 "echo -e '/ip route add dst-address=172.16.100.0/24 gateway=172.16.101.253\r' > /dev/ttyS0" 
+run_raw 2 "echo -e '/ip address add address=172.16.${Y}1.254/24 interface=ether2\r' > /dev/ttyS0" 
+run_raw 2 "echo -e '/ip address add address=172.16.1.${Y}1/24 interface=ether1\r' > /dev/ttyS0" 
+run_raw 2 "echo -e '/ip route add dst-address=172.16.${Y}0.0/24 gateway=172.16.${Y}1.253\r' > /dev/ttyS0" 
 
 echo "=== Adding Static Routes ==="
 # We use '|| true' here so the script doesn't exit if the route already exists.
 
-# Route on TUXY3: Reach 172.16.101.0 via Router (172.16.100.254)
-run_remote 3 "route add -net 172.16.101.0/24 gw 172.16.100.254" || echo "Route on TUXY3 likely exists, skipping."
-run_remote 3 "route add -net 172.16.1.0/24 gw 172.16.100.254" || echo "Route on TUXY3 likely exists, skipping."
+# Route on TUXY3: Reach 172.16.101.0 via Router (172.16.Y0.254)
+run_remote 3 "route add -net 172.16.${Y}1.0/24 gw 172.16.${Y}0.254" || echo "Route on TUXY3 likely exists, skipping."
+run_remote 3 "route add -net 172.16.1.0/24 gw 172.16.${Y}0.254" || echo "Route on TUXY3 likely exists, skipping."
 
 # Route on TUXY4: Reach 172.16.1.0 via Router
-run_remote 4 "route add -net 172.16.1.0/24 gw 172.16.101.254" || echo "Route on TUXY4 likely exists, skipping."
+run_remote 4 "route add -net 172.16.1.0/24 gw 172.16.${Y}1.254" || echo "Route on TUXY4 likely exists, skipping."
 
 # Route on TUXY2: Reach 172.16.100.0 via Router (172.16.101.253)
-run_remote 2 "route add -net 172.16.100.0/24 gw 172.16.101.253" || echo "Route on TUXY2 likely exists, skipping."
-run_remote 2 "route add -net 172.16.1.0/24 gw 172.16.101.254" || echo "Route on TUXY2 likely exists, skipping."
+run_remote 2 "route add -net 172.16.${Y}0.0/24 gw 172.16.${Y}1.253" || echo "Route on TUXY2 likely exists, skipping."
+run_remote 2 "route add -net 172.16.1.0/24 gw 172.16.${Y}1.254" || echo "Route on TUXY2 likely exists, skipping."
 
 echo "Setup Finished."
