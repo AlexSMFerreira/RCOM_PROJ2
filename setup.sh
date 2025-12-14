@@ -4,12 +4,14 @@
 # It should be run with superuser privileges on any TUX.    
 
 # Set Y as your group number.
-Y=10
+Y=6
 # Password for the remote machines
 password="alanturing"
 
 #tux_name without tux number
 tux_name="netedu@tux$Y" 
+
+dns_server="10.227.20.3"
 
 # IPs
 ip_tuxy2_ife1="172.16.${Y}1.1"
@@ -23,8 +25,9 @@ run_remote() {
     local host="${tux_name}$1"
     local cmd="$2"
     echo "Running on $host: $cmd"
-    # We wrap the command in quotes so the pipe happens remotely
-    sshpass -p "$password" ssh -o StrictHostKeyChecking=no "$host" "echo $password | sudo -S $cmd"
+    # Wrap in bash -c to run everything under sudo
+    sshpass -p "$password" ssh -o StrictHostKeyChecking=no "$host" \
+        "echo $password | sudo -S bash -c '$cmd'"
 }
 
 # Helper to run raw commands (like for the switch serial port)
@@ -99,5 +102,16 @@ run_remote 4 "route add -net 172.16.1.0/24 gw 172.16.${Y}1.254" || echo "Route o
 # Route on TUXY2: Reach 172.16.100.0 via Router (172.16.101.253)
 run_remote 2 "route add -net 172.16.${Y}0.0/24 gw 172.16.${Y}1.253" || echo "Route on TUXY2 likely exists, skipping."
 run_remote 2 "route add -net 172.16.1.0/24 gw 172.16.${Y}1.254" || echo "Route on TUXY2 likely exists, skipping."
+
+echo "=== Exp 5: DNS Configuration ==="
+for tux in 2 3 4; do
+    run_remote $tux "echo -e 'nameserver $dns_server' | sudo tee /etc/resolv.conf"
+    echo "DNS set on TUXY$tux to $dns_server"
+done
+
+echo "=== Exp 5: Verify DNS ==="
+for tux in 2 3 4; do
+    run_remote $tux "ping -c 2 ftp.netlab.fe.up.pt || echo 'Ping failed on TUXY$tux'"
+done
 
 echo "Setup Finished."
