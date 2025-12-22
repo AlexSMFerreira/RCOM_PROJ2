@@ -1,0 +1,77 @@
+% Short 3-page efficiency-only report
+\chapter*{Efficiency Report}
+\addcontentsline{toc}{chapter}{Efficiency Report}
+
+\section*{Summary}
+This concise report presents the efficiency analysis of the implemented Data Link Layer protocol.
+It focuses exclusively on metrics and methodology used to evaluate protocol performance.
+
+\section*{Introduction}
+\begin{sloppypar}
+The implemented protocol follows a Stop-and-Wait \ac{ARQ} scheme with alternating sequence numbers (0/1), header (\ac{BCC}1) and data (\ac{BCC}2) checks, byte stuffing for transparency, and timeout-triggered retransmissions.
+This report evaluates the protocol's efficiency under different operating conditions and parameter choices.
+\end{sloppypar}
+
+\section*{Methodology}
+\subsection*{Experimental Setup}
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\topsep}{0pt}
+  \item Link: serial emulation using the provided virtual cable.
+  \item Baudrate: configurable; typical tests at 38400\,bps.
+  \item Test file: binary payload (example: \texttt{penguin.gif}) of varied size.
+\end{itemize}
+
+\subsection*{Metrics}
+The primary metric is protocol efficiency $S$, defined as:
+\[ S = \frac{\text{useful bytes delivered}}{\text{total bytes transmitted (including overhead and retransmissions)}}. \]
+Secondary metrics: throughput (bytes/s), retransmission rate, and transfer time.
+
+\subsection*{Procedure}
+For each parameter set (frame size $L$, baud rate $C$, \ac{BER}, propagation delay $T_{\text{Prop}}$) record total frames transmitted, retransmissions, timeouts and elapsed time.
+
+\section*{Results}
+The results are presented below.
+
+\subsection*{Theoretical Efficiency}
+For a Stop-and-Wait \ac{ARQ} protocol, the theoretical efficiency depends on the \ac{FER}, frame size, baud rate and propagation time:
+\[ S_{\text{Theory}} = \frac{(1-\text{BER})^{L}}{1 + 2(\frac{C \cdot T_{\text{Prop}}}{L})} \]
+where $L$ is the frame size (bits), $BER$ is the bit error rate (the probability that a given bit is received in error), $C$ is the channel capacity (bps), and $T_{\text{Prop}}$ is the propagation delay (seconds).
+
+\subsection*{Experimental Results}
+\input{../../results/results_table.tex}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../../results/Efficiency vs Frame Size.png}
+    \caption{Efficiency as function of frame size}
+    \label{fig:efficiency-frame-size}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../../results/Efficiency vs FER .png}
+    \caption{Efficiency as function of \ac{FER}}
+    \label{fig:efficiency-fer}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../../results/Efficiency vs TProp.png}
+    \caption{Efficiency as function of propagation delay ($T_{Prop}$)}
+    \label{fig:efficiency-tprop}
+  \end{minipage}
+\end{figure}
+
+\section*{Conclusions}
+This short report provides an efficiency analysis of the implemented protocol. 
+After analyzing the results, we conclude that efficiency is significantly influenced by frame size and error rate. 
+Larger frame sizes generally yield higher efficiency due to reduced relative overhead, but are more sensitive to higher \ac{BER}, which may lead to more retransmissions and lower efficiency in harsh conditions.
+The measured efficiency deviates from theoretical predictions, due mainly to the implementation overheads such as frame header, timeouts, byte stuffing, and acknowledgment delays.
+Optimal parameter choices for maximizing throughput include using larger frames and minimizing error rates through appropriate channel conditions.
+
+\vfill
+% end of file

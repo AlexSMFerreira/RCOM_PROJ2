@@ -1,0 +1,55 @@
+\begin{table}[htbp]
+\centering
+\caption{Experimental Results Summary}
+\label{tab:results}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+\hline
+\textbf{Test} & \textbf{Baud Rate} & \textbf{BER} & \textbf{FER} & \textbf{$T_{Prop}$} & \textbf{Frame Size} & \textbf{Time} & \textbf{TX} & \textbf{ReTX} & \textbf{REJ} & \textbf{TO} & \textbf{R} & \textbf{S} & \textbf{$S_{Theory}$} \\
+\textbf{Num.} & \textbf{(bps)} & & & \textbf{(ms)} & \textbf{(bytes)} & \textbf{(s)} & & & & & \textbf{(bps)} & \textbf{(\%)} & \textbf{(\%)} \\
+\hline
+\hline
+\multicolumn{14}{c}{\textit{Test Group 1: Varying Baud Rate (BER=0, FER=0\%, $T_{Prop}$=0ms, Frame Size=900 bytes)}} \\
+\hline
+11 & 9600 & 0.000000 & 0.00 & 0.0 & 900 & 11.772 & 15 & 0 & 0 & 0 & 7453.62 & 77.64 & 100.00 \\
+12 & 19200 & 0.000000 & 0.00 & 0.0 & 900 & 5.886 & 15 & 0 & 0 & 0 & 14907.24 & 77.64 & 100.00 \\
+13 & 38400 & 0.000000 & 0.00 & 0.0 & 900 & 2.943 & 15 & 0 & 0 & 0 & 29814.48 & 77.64 & 100.00 \\
+14 & 57600 & 0.000000 & 0.00 & 0.0 & 900 & 1.963 & 15 & 0 & 0 & 0 & 44698.93 & 77.60 & 100.00 \\
+15 & 115200 & 0.000000 & 0.00 & 0.0 & 900 & 0.983 & 15 & 0 & 0 & 0 & 89261.44 & 77.48 & 100.00 \\
+\hline
+\multicolumn{14}{c}{\textit{Test Group 2: Varying BER (Baud Rate=38400, $T_{Prop}$=0ms, Frame Size=900 bytes)}} \\
+\hline
+21 & 38400 & 0.000000 & 0.00 & 0.0 & 900 & 3.140 & 15 & 0 & 0 & 0 & 27943.95 & 72.77 & 100.00 \\
+22 & 38400 & 0.000001 & 0.72 & 0.0 & 900 & 3.146 & 15 & 0 & 0 & 0 & 27890.65 & 72.63 & 99.99 \\
+23 & 38400 & 0.000003 & 2.16 & 0.0 & 900 & 3.149 & 15 & 0 & 0 & 0 & 27864.08 & 72.56 & 99.98 \\
+24 & 38400 & 0.000010 & 7.20 & 0.0 & 900 & 3.647 & 17 & 2 & 2 & 0 & 24059.23 & 62.65 & 99.93 \\
+25 & 38400 & 0.000030 & 21.60 & 0.0 & 900 & 4.600 & 21 & 6 & 6 & 0 & 19074.78 & 49.67 & 99.78 \\
+\hline
+\multicolumn{14}{c}{\textit{Test Group 3: Varying Propagation Delay (Baud Rate=38400, BER=0, Frame Size=900 bytes)}} \\
+\hline
+31 & 38400 & 0.000000 & 0.00 & 0.0 & 900 & 2.943 & 15 & 0 & 0 & 0 & 29814.48 & 77.64 & 100.00 \\
+32 & 38400 & 0.000000 & 0.00 & 5.0 & 900 & 3.112 & 15 & 0 & 0 & 0 & 28195.37 & 73.43 & 94.94 \\
+33 & 38400 & 0.000000 & 0.00 & 10.0 & 900 & 3.280 & 15 & 0 & 0 & 0 & 26751.22 & 69.66 & 90.36 \\
+34 & 38400 & 0.000000 & 0.00 & 20.0 & 900 & 3.627 & 15 & 0 & 0 & 0 & 24191.89 & 63.00 & 82.42 \\
+35 & 38400 & 0.000000 & 0.00 & 50.0 & 900 & 4.645 & 15 & 0 & 0 & 0 & 18889.99 & 49.19 & 65.22 \\
+\hline
+\multicolumn{14}{c}{\textit{Test Group 4: Varying Frame Size (Baud Rate=38400, BER=0, $T_{Prop}$=0ms)}} \\
+\hline
+41 & 38400 & 0.000000 & 0.00 & 0.0 & 32 & 4.680 & 345 & 0 & 0 & 0 & 18748.72 & 48.82 & 100.00 \\
+42 & 38400 & 0.000000 & 0.00 & 0.0 & 64 & 3.781 & 174 & 0 & 0 & 0 & 23206.56 & 60.43 & 100.00 \\
+43 & 38400 & 0.000000 & 0.00 & 0.0 & 256 & 3.283 & 45 & 0 & 0 & 0 & 26726.77 & 69.60 & 100.00 \\
+44 & 38400 & 0.000000 & 0.00 & 0.0 & 512 & 3.205 & 24 & 0 & 0 & 0 & 27377.22 & 71.29 & 100.00 \\
+45 & 38400 & 0.000000 & 0.00 & 0.0 & 900 & 3.153 & 15 & 0 & 0 & 0 & 27828.73 & 72.47 & 100.00 \\
+\hline
+\end{tabular}%
+}
+\begin{tablenotes}
+\small
+\item TX: Transmissions; ReTX: Retransmissions; REJ: Rejections; TO: Timeouts; R: Data Rate; 
+\item S: Measured Efficiency; $S_{Theory}$: Theoretical Efficiency
+\item File size: 10968 bytes for all tests
+\item The theoretical efficiency accounts for frame overhead, error rates, and propagation delays
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
