@@ -43,9 +43,9 @@
 \contentsline {chapter}{\numberline {6}Annexes}{14}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Download Application Code}{14}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Configuration Commands}{14}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Captured Logs}{15}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Experiment 1 - Configure an IP Network}{15}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Experiment 2 - Implement two bridges in a switch}{16}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Experiment 3 - Configure a Router in Linux}{19}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Experiment 4 - Configure a Commercial Router and Implement NAT}{23}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Experiment 6 - TCP Connections}{24}{subsection.6.3.5}%
+\contentsline {section}{\numberline {6.3}Captured Logs}{14}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Experiment 1 - Configure an IP Network}{14}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Experiment 2 - Implement two bridges in a switch}{14}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Experiment 3 - Configure a Router in Linux}{15}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Experiment 4 - Configure a Commercial Router and Implement NAT}{15}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Experiment 6 - TCP Connections}{16}{subsection.6.3.5}%
