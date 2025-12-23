@@ -37,18 +37,19 @@ Show relevant logs and outputs.
 \subsection{Analysis}
 Discuss the results and learning points.
 
-\section{Experiment 4 - Configure a Commercial Router and Implement NAT}
-\subsection{Network Architecture}
-For this experiment, the commercial router was connected to the lab network through ether1 
-and to the Y1 bridge through ether2. The ip addresses and routes were configured as specified in the project description.
+\section{Experiment 4 - Configure a Commercial Router and Implement \ac{NAT}}
 \subsection{Configuring a Static Route in a Commercial Router}
 To configure a static route in the commercial router, we accessed its 
-console and entered the necessary commands. We added a new static route with the destination network, subnet mask, and gateway as per the project requirements. After saving the configuration, we verified the route was correctly added by checking the routing table in the router's interface.
-\subsection{ICMP Redirection}
+console and entered the necessary commands. We added a new static route with the desti\ac{NAT}ion network, subnet mask, and gateway as per the project requirements. After saving the configuration, we verified the route was correctly added by checking the routing table in the router's interface.
+\subsection{\ac{ICMP} Redirection}
+To test \ac{ICMP} redirection, we initiated ping requests from TUX2 to TUX3.
+Initially, the packets were routed through TUX4 as it was the shortest path to subnet 172.16.Y0.0/24. After that, as requested in the project description, we disabled redirection acceptance on TUX2, and changed the routes to force the packets to go through the commercial router. This way, we observed that TUX2 continued to send packets through TUX4, ignoring the \ac{ICMP} redirect messages from the commercial router.
+With \ac{ICMP} redirection disabled, after the first \ac{ICMP} redirect, TUX2 switched to its original routing path, demonstrating the effect of disabling \ac{ICMP} redirect acceptance on the routing behavior of the host.
+\subsection{Configuring \ac{NAT}}
+As \ac{NAT} was already enabled by default on the commercial router, to understand its functionality, we disabled it through the router's console and observed its effects on the network communication. We then re-enabled \ac{NAT} to restore normal operation.
+\subsection{Network Address Translation}
+To understand \ac{NAT} functionality, we performed ping tests from TUX3 to the FTP server before and after disabling \ac{NAT} on the commercial router. With \ac{NAT} enabled, TUX3 was able to successfully ping the server, as the router correctly translated the private \ac{IP} address of TUX3 to a public \ac{IP} address for communication. With \ac{NAT} disabled, the pings failed, indicating that the server could not reach TUX3's private \ac{IP} address directly. This demonstrated the importance of \ac{NAT} in allowing devices within a private network to communicate with external networks.
 
-
-\subsection{Analysis}
-Discuss the results and learning points.
 
 \section{Experiment 5 - DNS}
 \subsection{Network Architecture}

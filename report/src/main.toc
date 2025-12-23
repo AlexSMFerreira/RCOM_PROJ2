@@ -22,17 +22,17 @@
 \contentsline {subsection}{\numberline {3.3.3}Main Configuration Commands}{4}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Relevant Logs}{4}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}Analysis}{4}{subsection.3.3.5}%
-\contentsline {section}{\numberline {3.4}Experiment 4 - Configure a Commercial Router and Implement NAT}{5}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Network Architecture}{5}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Configuring a Static Route in a Commercial Router}{5}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}ICMP Redirection}{5}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Analysis}{5}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.4}Experiment 4 - Configure a Commercial Router and Implement \ac {NAT}}{4}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Configuring a Static Route in a Commercial Router}{4}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}\ac {ICMP} Redirection}{5}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Configuring \ac {NAT}}{5}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Network Address Translation}{5}{subsection.3.4.4}%
 \contentsline {section}{\numberline {3.5}Experiment 5 - DNS}{5}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Network Architecture}{5}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Objectives}{5}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Main Configuration Commands}{5}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Relevant Logs}{5}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Analysis}{5}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.4}Relevant Logs}{6}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Analysis}{6}{subsection.3.5.5}%
 \contentsline {section}{\numberline {3.6}Experiment 6 - TCP Connections}{6}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Network Architecture}{6}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Objectives}{6}{subsection.3.6.2}%
