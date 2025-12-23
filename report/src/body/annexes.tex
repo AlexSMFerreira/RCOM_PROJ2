@@ -4,6 +4,63 @@ Include the source code %(can use \lstinputlisting).
 \section{Configuration Commands}
 List scripts and manual commands used.
 \section{Captured Logs}
+\subsection{Experiment 1 - Configure an IP Network}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp1.png}
+    \caption{TUX103 pinging TUX104}
+    \label{fig:exp1_1_TUX103toTUX104}
+\end{figure}
+\subsection{Experiment 2 - Implement two bridges in a switch}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp2_5_tux103-tux104.png}
+    \caption{TUX103 pinging TUX104 in the same bridge}
+    \label{fig:exp2_5_tux103-tux104.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp2_5_tux103-tux102.png}
+    \caption{TUX103 pinging TUX102 in a different bridge}
+    \label{fig:exp2_5_tux103-tux102.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp2_8_tux104-receiving_broadcast-tux103.png}
+    \caption{TUX104 receiving broadcast ping from TUX103}
+    \label{fig:exp2_8_tux104-receiving_broadcast-tux103.png}
+\end{figure}
+\subsection{Experiment 3 - Configure a Router in Linux}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp3_6_tux103-tux104-e1.png}
+    \caption{TUX103 pinging TUX104's ether1 interface}
+    \label{fig:exp3_6_tux103-tux104-e1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp3_6_tux103-tux104-e2.png}
+    \caption{TUX103 pinging TUX104's ether2 interface}
+    \label{fig:exp3_6_tux103-tux104-e2}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp3_6_tux103-tux102.png}
+    \caption{TUX103 pinging TUX102}
+    \label{fig:exp3_6_tux103-tux102}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp3_8_tux104-e1.png}
+    \caption{TUX104 router capturing ICMP on ether1 interface}
+    \label{fig:exp3_8_tux104-e1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../../../results/exp3_8_tux104-e2.png}
+    \caption{TUX104 router capturing ICMP on ether2 interface}
+    \label{fig:exp3_8_tux104-e2}
+\end{figure}
 \subsection{Experiment 4 - Configure a Commercial Router and Implement NAT}
 \begin{figure}[H]
     \centering

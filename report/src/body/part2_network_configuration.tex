@@ -1,41 +1,125 @@
 \chapter{Part 2 -- Network Configuration and Analysis}
-% Repeat for each experiment (1 to 6)
-\section{Experiment 1 - Configure an IP Network}
+
+\section{Experiment 1 - Configure an \ac{IP} Network}
+
 \subsection{Network Architecture}
-For this experiment, we connected TUX3 and TUX4 through the switch and 
-configured their IP addresses as requested in the project description.
-\subsection{Objectives}
-State the learning objectives.
-\subsection{Main Configuration Commands}
-List the main commands/scripts used.
-\subsection{Relevant Logs}
-Show relevant logs and outputs.
+For this experiment, we connected Tux103 and Tux104 to the same switch, creating a single broadcast domain. The \ac{IP} addresses were configured as specified in the project description, assigning \texttt{172.16.100.1} to Tux103 and \texttt{172.16.100.254} to Tux104, both within the \texttt{172.16.100.0/24} subnet.
+
+\subsection{\ac{IP} Configuration and Connectivity}
+To configure the network, we accessed the terminals of both hosts and used the \texttt{ifconfig} command to assign the \ac{IP} addresses and netmasks manually. We verified the configuration by inspecting the routing table with \texttt{route $-$n}, confirming a direct connection to the local subnet. To test connectivity and observe the address resolution process, we cleared the ARP cache using \texttt{arp $-$d} and immediately executed a \texttt{ping} command while capturing traffic with Wireshark, as shown in Figure \ref{fig:exp1_1_TUX103toTUX104}.
+
+\subsection{ARP Packets and Addressing}
+We observed that ARP (Address Resolution Protocol) packets are generated when a host needs to map a known Layer 3 (\ac{IP}) address to an unknown Layer 2 (MAC) address. 
+Regarding the addresses, the \textbf{ARP Request} uses the Broadcast MAC address (\texttt{FF:FF:FF:FF:FF:FF}) as the destination because the sender does not yet know the target's hardware address. However, the destination \ac{IP} is specific to the target. 
+The \textbf{ARP Reply} is sent via Unicast, using the specific MAC and \ac{IP} addresses of the requester and the target, as the identity of the host is now established.
+
+\subsection{Ping Command and ICMP Generation}
+The \texttt{ping} command generates \textbf{ICMP} (Internet Control Message Protocol) packets. Specifically, it sends "Echo Request" messages and awaits "Echo Reply" messages to test connectivity.
+Unlike ARP, the MAC and \ac{IP} addresses observed in these packets are always \textbf{Unicast}. This is because the ARP resolution has already successfully occurred, allowing the sender to encapsulate the \ac{IP} packet in an Ethernet frame addressed to the specific destination MAC.
+
+\subsection{Frame Identification and Length}
+To determine the type of receiving Ethernet frame, we analyzed the \textbf{EtherType} field in the header: a value of \texttt{0x0806} indicates an ARP frame, while \texttt{0x0800} indicates an \ac{IP} frame. To identify ICMP packets, we further inspected the \ac{IP} header, where the Protocol field value is \texttt{1}.
+The length of the receiving frame was determined by analyzing the return value of the socket read function (in the application context) or by inspecting the "Total Length" field within the \ac{IP} header during packet capture.
+\subsection{The Loopback Interface}
+We also identified the loopback interface (\texttt{lo}, \ac{IP} \texttt{127.0.0.1}). This is a virtual network interface that allows the system to communicate with itself. It is crucial for testing internal network stack functionality and for inter-process communication without sending data through the physical network hardware.
+
 \subsection{Analysis}
-Discuss the results and learning points.
+In this experiment, we successfully configured a simple \ac{IP}v4 network and verified connectivity. The results demonstrated the dependency of Layer 3 communication on Layer 2 address resolution. We concluded that before any ICMP (Ping) traffic can be exchanged, the system must broadcast ARP Requests to resolve the destination MAC address. Once the ARP table is populated, subsequent communication uses efficient Unicast frames.
 
 \section{Experiment 2 - Implement two bridges in a switch}
+
 \subsection{Network Architecture}
-Describe the network setup for this experiment.
-\subsection{Objectives}
-State the learning objectives.
-\subsection{Main Configuration Commands}
-List the main commands/scripts used.
-\subsection{Relevant Logs}
-Show relevant logs and outputs.
+In this experiment, we logically partitioned the physical switch into two distinct Layer 2 segments. We created two separate bridges: \texttt{bridge100}, connecting Tux103 and Tux104 (Subnet \texttt{172.16.100.0/24}), and \texttt{bridge101}, connecting Tux102 (Subnet \texttt{172.16.101.0/24}). This configuration effectively isolates the traffic between the two groups of hosts, despite them being connected to the same physical device.
+
+\subsection{Bridge Configuration}
+To configure the bridges on the MikroTik switch, we accessed the device via the serial console and executed the following steps:
+\begin{enumerate}
+    \item We created the logical bridge interfaces using the command \texttt{/interface bridge add name=bridge100} (and similarly for bridge101).
+    \item We assigned the physical ports to these bridges. For example, the ports connected to Tux103 and Tux104 were removed from the default bridge and added to \texttt{bridge100} using \texttt{/interface bridge port add}.
+\end{enumerate}
+We verified the configuration using \texttt{/interface bridge port print}, ensuring that each physical port was associated with the correct logical bridge.
+
+\subsection{Connectivity Verification}
+After configuring the bridges, we verified the connectivity and isolation using ICMP (ping) commands from Tux103.
+\begin{itemize}
+    \item \textbf{Intra-Bridge Communication:} When pinging Tux104 (\texttt{172.16.100.254}), which resides on the same bridge (\texttt{bridge100}), the communication was successful with valid Echo Replies, as shown in Figure \ref{fig:exp2_5_tux103-tux104.png}.
+    \item \textbf{Inter-Bridge Isolation:} When pinging Tux102 (\texttt{172.16.101.1}), which resides on the separate \texttt{bridge101}, the communication failed with "Destination Unreachable" messages (Figure \ref{fig:exp2_5_tux103-tux102.png}). This confirms that traffic cannot cross from one bridge to another without a Layer 3 routing device.
+\end{itemize}
+
+\subsection{Broadcast Domains Analysis}
+A key objective of this experiment was to identify the number of broadcast domains and verify their isolation.
+\begin{itemize}
+    \item \textbf{Number of Domains:} By creating two separate bridges (\texttt{bridge100} and \texttt{bridge101}), we created two distinct broadcast domains. A bridge forwards broadcast frames to all ports within itself, but never to ports assigned to a different bridge.
+    \item \textbf{Verification via Logs:} We concluded this by analyzing the traffic logs during the Broadcast Ping test (\texttt{ping $-$b}). When Tux103 sent a broadcast packet to \texttt{172.16.100.255}:
+    \begin{itemize}
+        \item \textbf{Tux104} (on the same bridge) received the broadcast request and immediately responded with a unicast Echo Reply (Figure \ref{fig:exp2_8_tux104-receiving_broadcast-tux103.png}). This confirms they share the same broadcast domain
+        \item \textbf{Tux102} (on \texttt{bridge101}) did \textbf{not} capture any packet. This silence proves that the broadcast traffic was contained within \texttt{bridge100} and did not cross over to \texttt{bridge101}.
+    \end{itemize}
+    \item \ We also performed a broadcast ping from Tux102 (\texttt{172.16.101.255}). 
+    \begin{itemize}
+        \item As expected, \textbf{no Echo Replies were received}, which confirms that Tux102 is isolated in its own broadcast domain (\texttt{bridge101}) and cannot trigger responses from hosts in \texttt{bridge100} (Tux103/104). 
+    \end{itemize}
+\end{itemize}
+
 \subsection{Analysis}
-Discuss the results and learning points.
+In this experiment, we successfully segmented the network at Layer 2. The results demonstrated that while Tux103 and Tux104 could communicate directly (as they share the same bridge and \ac{IP} subnet), connectivity to Tux102 was impossible.
+This isolation occurs because the switch acts as two separate logical devices. Since there is no Layer 3 device (Router) configured to forward packets between the \texttt{172.16.100.0} and \texttt{172.16.101.0} networks, traffic cannot pass between the bridges. This experiment reinforces the concept that bridges define the boundaries of broadcast domains.
 
 \section{Experiment 3 - Configure a Router in Linux}
+
 \subsection{Network Architecture}
-Describe the network setup for this experiment.
-\subsection{Objectives}
-State the learning objectives.
-\subsection{Main Configuration Commands}
-List the main commands/scripts used.
-\subsection{Relevant Logs}
-Show relevant logs and outputs.
+In this experiment, we connected two distinct subnets using a Linux host acting as a router. 
+\begin{itemize}
+    \item \textbf{Subnet 1 (172.16.100.0/24):} Contains \textbf{Tux103} (172.16.100.1) and the first interface of the router \textbf{Tux104} (172.16.100.254).
+    \item \textbf{Subnet 2 (172.16.101.0/24):} Contains \textbf{Tux102} (172.16.101.1) and the second interface of the router \textbf{Tux104} (172.16.101.253).
+\end{itemize}
+\textbf{Tux104} was configured to forward traffic between these two networks, effectively functioning as a Layer 3 Router.
+
+\subsection{Router Configuration}
+To transform the standard Linux host (Tux104) into a router, we executed the following configuration steps:
+\begin{enumerate}
+    \item \textbf{\ac{IP} Forwarding:} We enabled packet forwarding in the kernel using the command \texttt{sysctl net.\ac{IP}v4.\ac{IP}\_forward=1}. This allows the operating system to accept packets destined for other networks and forward them through the appropriate interface.
+    \item \textbf{ICMP Broadcasts:} We used \texttt{sysctl net.\ac{IP}v4.icmp\_echo\_ignore\_broadcasts=0} to disable the ignore broadcast setting to allow the router to respond to broadcast pings for diagnostic purposes.
+\end{enumerate}
+
+\subsection{Routing Table Analysis}
+We analyzed the routing tables on all three hosts to ensure connectivity.
+\begin{itemize}
+    \item \textbf{Routes in End Hosts (Tux103/Tux102):} We added static routes to reach the remote subnet. For example, on Tux103, we added a route to \texttt{172.16.101.0/24} using Tux104 (\texttt{172.16.100.254}) as the \textbf{Gateway}. The entry contains the \textbf{Destination Network}, the \textbf{Gateway \ac{IP}}, the \textbf{Genmask}, and the \textbf{Interface}. The flag \textbf{UG} indicates the route is Up and uses a Gateway.
+    \item \textbf{Routes in Router (Tux104):} The router automatically has direct routes (Flag \textbf{U}) to both \texttt{172.16.100.0/24} and \texttt{172.16.101.0/24} because it has physical interfaces connected to them.
+    \item \textbf{Forwarding Table Entry:} A forwarding table entry tells the system: "To reach network X, send the packet to Next-Hop Y via Interface Z".
+\end{itemize}
+
+\subsection{Connectivity Verification}
+From Tux103, we performed a sequence of pings to verify connectivity to all relevant interfaces in the network topology:
+\begin{itemize}
+    \item \textbf{Local Gateway Interface:} Ping to \texttt{172.16.100.254} (Tux104-e1). Successful (Figure \ref{fig:exp3_6_tux103-tux104-e1}).
+    \item \textbf{Remote Gateway Interface:} Ping to \texttt{172.16.101.253} (Tux104-e2). Successful (Figure \ref{fig:exp3_6_tux103-tux104-e2}).
+    \item \textbf{Remote Host:} Ping to \texttt{172.16.101.1} (Tux102). Successful with \texttt{ttl=63} in the reply, indicating the packet traversed one router hop (Figure \ref{fig:exp3_6_tux103-tux102}).
+\end{itemize}
+
+\subsection{ARP Analysis}
+During the connectivity test (Ping from Tux103 to Tux102), we observed specific ARP behaviors that differ from the single-subnet experiment:
+\begin{itemize}
+    \item \textbf{Tux103 ARP Request:} Tux103 needs to send the packet to the final destination (Tux102), but it knows Tux102 is on a remote network. Therefore, Tux103 broadcasts an ARP Request asking for the \textbf{MAC address of the Gateway (Tux104)}, not the destination host.
+    \item \textbf{Router ARP Request:} Once Tux104 receives the packet and decides to forward it to the 172.16.101.0 network, it broadcasts a new ARP Request on that subnet asking for the \textbf{MAC address of Tux102}.
+\end{itemize}
+
+\subsection{ICMP and Addressing Analysis}
+We captured the traffic on both interfaces of the router (Tux104) simultaneously to analyze the packet headers during transit.
+\begin{itemize}
+    \item \textbf{Capture on Interface E1 (Subnet 100):} As shown in Figure \ref{fig:exp3_8_tux104-e1}, the router receives the ICMP Echo Request from Tux103. The Destination \ac{IP} is \texttt{172.16.101.1} (Remote), but the frame is addressed to the router's MAC address.
+    \item \textbf{Capture on Interface E2 (Subnet 101):} As shown in Figure \ref{fig:exp3_8_tux104-e2}, the router forwards the same \ac{IP} packet out of interface E2.
+    \item \textbf{Key Observation:}
+    \begin{itemize}
+        \item \textbf{End-to-End \ac{IP}:} The Source \ac{IP} (\texttt{172.16.100.1}) and Destination \ac{IP} (\texttt{172.16.101.1}) remain identical in both captures.
+        \item \textbf{Hop-by-Hop MAC:} The Layer 2 addresses change. In E1, the destination MAC is the Router's E1 interface. In E2, the source MAC becomes the Router's E2 interface, and the destination MAC becomes Tux102.
+    \end{itemize}
+\end{itemize}
+
 \subsection{Analysis}
-Discuss the results and learning points.
+In this experiment, we successfully implemented \ac{IP} routing on a Linux machine. The results demonstrated that for communication between different subnets, end hosts must be configured with a Gateway. The analysis of the captured traffic highlighted the distinction between Layer 2 (MAC), which handles local delivery hop-by-hop, and Layer 3 (\ac{IP}), which handles end-to-end addressing. We also confirmed that enabling \texttt{\ac{IP}\_forward} is mandatory for a Linux host to act as a router.
+
 
 \section{Experiment 4 - Configure a Commercial Router and Implement NAT}
 \subsection{Configuring a Static Route in a Commercial Router}
