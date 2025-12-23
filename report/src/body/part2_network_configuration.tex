@@ -58,14 +58,61 @@ To configure the DNS service on TUX2, TUX3, and TUX4, we modified the
 \ac{DNS} packets were captured using Wireshark while performing a domain name resolution for \texttt{google.com} from TUX3. The captured packets showed the standard \ac{DNS} query and response process, including the query sent by TUX3 to the DNS service and the corresponding response containing the resolved \ac{IP} address of the server.
 
 \section{Experiment 6 - TCP Connections}
-\subsection{Network Architecture}
-Describe the network setup for this experiment.
-\subsection{Objectives}
-State the learning objectives.
-\subsection{Main Configuration Commands}
-List the main commands/scripts used.
-\subsection{Relevant Logs}
-Show relevant logs and outputs.
-\subsection{Analysis}
-Discuss the results and learning points.
+\subsection{TCP Connections in FTP}
+In order to successfully download a file using the \ac{FTP} client, two \ac{TCP} connections are established between the client and the server. The first connection is the control connection, which is used for sending commands and receiving responses. This connection is established on port 21 of the server. The second connection is the data connection, which is used for transferring files. Depending on whether active or passive mode is used, this connection can be initiated by either the client or the server on a dynamically assigned port.
+Every \ac{TCP} connection involves a three-way handshake process to establish the connection, followed by data transfer, and finally a four-way handshake to terminate the connection.
+
+\subsection{Automatic Repeat reQuest in TCP}
+\ac{ARQ} is a fundamental mechanism used in \ac{TCP} to ensure reliable data transmission. It works by requiring the receiver to send acknowledgments (ACKs) back to the sender for the data packets received. If the sender does not receive an acknowledgment within a specified timeout period, it assumes that the packet was lost or corrupted and retransmits the packet. This process continues until the sender receives an acknowledgment for all sent packets, ensuring that all data is correctly received by the receiver. On duplicate ACKs, \ac{TCP} can also perform fast retransmissions to improve efficiency.
+
+The following table summarizes the key \ac{TCP} header fields involved in the \ac{ARQ} mechanism and their roles:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|p{4cm}|p{10cm}|}
+        \hline
+        \textbf{Field} & \textbf{Role in ARQ} \\
+        \hline
+        Sequence Number & Identifies the \textbf{first byte} in this segment. Used for ordering and retransmission. \\
+        \hline
+        Acknowledgment Number & Indicates \textbf{next byte expected} by the receiver. Confirms receipt of previous bytes. \\
+        \hline
+        Flags & Especially \textbf{ACK}, \textbf{SYN}, \textbf{FIN}. ACK is critical for ARQ. \\
+        \hline
+        Window Size & Flow control; tells sender how many bytes can be sent before receiving an ACK. \\
+        \hline
+        Checksum & Detects corrupted segments; segments failing the checksum are discarded and retransmitted. \\
+        \hline
+    \end{tabular}
+    \caption{TCP Header Fields and Their Role in ARQ}
+    \label{tab:tcp-arq-fields}
+\end{table}
+
+\subsection{TCP Congestion Control}
+\ac{TCP} employs several congestion control mechanisms to manage network congestion and ensure efficient data transmission. The primary algorithms used in \ac{TCP} congestion control include Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery.
+
+The following table highlights the main \ac{TCP} header fields relevant to congestion control and their roles:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|p{4cm}|p{10cm}|}
+        \hline
+        \textbf{Field} & \textbf{Role} \\
+        \hline
+        Sequence Number & Tracks the byte position for retransmission and ordering. \\
+        \hline
+        Acknowledgment Number & Confirms receipt of bytes; triggers congestion window (cwnd) increase. \\
+        \hline
+        Window Size (rwnd) & Receiver’s advertised window (flow control). \\
+        \hline
+        Flags (ACK) & ACK signals successful receipt. \\
+        \hline
+        Optional TCP Options & e.g., SACK (Selective ACK) can improve fast retransmit. \\
+        \hline
+    \end{tabular}
+    \caption{TCP Header Fields and Their Role in Congestion Control}
+    \label{tab:tcp-congestion-fields}
+\end{table}
+
+To measure the effects of the \ac{TCP} congestion control mechanism, we initiated a file download using our \ac{FTP} client while capturing the \ac{TCP} packets with Wireshark. By analyzing the captured packets, we observed the changes in the throughput during the concurrent download process, as can be seen in Figure~\ref{fig:tcp_congestion}.
+
 

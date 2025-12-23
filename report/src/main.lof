@@ -5,7 +5,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces TUX3 pinging RC's ether2 interface\relax }}{9}{figure.caption.18}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces TUX3 pinging TUX2\relax }}{9}{figure.caption.19}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces TUX3 pinging TUX4's ether2 interface\relax }}{9}{figure.caption.20}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces TUX3 pinging TUX4's ether1 interface\relax }}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces TUX3 pinging RC's ether2 interface\relax }}{10}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces TUX3 pinging TUX2\relax }}{10}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces TUX3 pinging TUX4's ether2 interface\relax }}{10}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces TUX3 pinging TUX4's ether1 interface\relax }}{11}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Changes in Throughput during concurrent FTP download\relax }}{11}{figure.caption.26}%

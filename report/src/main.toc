@@ -31,15 +31,14 @@
 \contentsline {subsection}{\numberline {3.5.1}Configuring a DNS Service}{5}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}DNS Packets}{5}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}Experiment 6 - TCP Connections}{6}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Network Architecture}{6}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Objectives}{6}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Main Configuration Commands}{6}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Relevant Logs}{6}{subsection.3.6.4}%
-\contentsline {subsection}{\numberline {3.6.5}Analysis}{6}{subsection.3.6.5}%
-\contentsline {chapter}{\numberline {4}Conclusions}{7}{chapter.4}%
-\contentsline {chapter}{\numberline {5}References}{8}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Annexes}{9}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Download Application Code}{9}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Configuration Commands}{9}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Captured Logs}{9}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Experiment 4 - Configure a Commercial Router and Implement NAT}{9}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {3.6.1}TCP Connections in FTP}{6}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Automatic Repeat reQuest in TCP}{6}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}TCP Congestion Control}{7}{subsection.3.6.3}%
+\contentsline {chapter}{\numberline {4}Conclusions}{8}{chapter.4}%
+\contentsline {chapter}{\numberline {5}References}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Annexes}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Download Application Code}{10}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Configuration Commands}{10}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Captured Logs}{10}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Experiment 4 - Configure a Commercial Router and Implement NAT}{10}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Experiment 6 - TCP Connections}{11}{subsection.6.3.2}%

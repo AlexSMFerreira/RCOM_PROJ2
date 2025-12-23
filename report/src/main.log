@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  23 DEC 2025 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  23 DEC 2025 17:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -845,7 +845,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 13
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<figures//uporto-feup.pdf, id=196, 338.26375pt x 126.4725pt>
+<figures//uporto-feup.pdf, id=192, 338.26375pt x 126.4725pt>
 File: figures//uporto-feup.pdf Graphic file (type pdf)
 <use figures//uporto-feup.pdf>
 Package pdftex.def Info: figures//uporto-feup.pdf  used on input line 130.
@@ -984,12 +984,27 @@ Overfull \hbox (3.44167pt too wide) in paragraph at lines 55--57
  []
 
 Package acronym Info: Label `acro:DNS' overridden on input line 58.
-[5]) [6]
+[5]
+Package acronym Info: Label `acro:TCP' newly defined as it shall be overridden
+although it is yet undefined on input line 62.
+Package acronym Info: Label `acro:ARQ' newly defined as it shall be overridden
+although it is yet undefined on input line 66.
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+[]|\T1/ptm/m/n/10.95 Acknowledgment Num-
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]|\T1/ptm/m/n/10.95 Acknowledgment Num-
+ []
+
+) [7]
 \openout2 = `body/conclusions.aux'.
 
  (./body/conclusions.tex
 Chapter 4.
-) [7
+) [8
 
 
 
@@ -999,7 +1014,7 @@ Chapter 4.
 
  (./body/references.tex
 Chapter 5.
-) [8
+) [9
 
 
 
@@ -1009,55 +1024,61 @@ Chapter 5.
 
  (./body/annexes.tex
 Chapter 6.
-<figures//../../../results/exp4_3_1.png, id=401, 1322.9425pt x 134.5025pt>
+<figures//../../../results/exp4_3_1.png, id=430, 1322.9425pt x 134.5025pt>
 File: figures//../../../results/exp4_3_1.png Graphic file (type png)
 <use figures//../../../results/exp4_3_1.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_1.png  used on input line 10.
 (pdftex.def)             Requested size: 426.79135pt x 43.39056pt.
-<figures//../../../results/exp4_3_2.png, id=403, 1329.96875pt x 150.5625pt>
+<figures//../../../results/exp4_3_2.png, id=432, 1329.96875pt x 150.5625pt>
 File: figures//../../../results/exp4_3_2.png Graphic file (type png)
 <use figures//../../../results/exp4_3_2.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_2.png  used on input line 16.
 (pdftex.def)             Requested size: 426.79135pt x 48.31651pt.
-<figures//../../../results/exp4_3_3.png, id=404, 1349.04pt x 110.4125pt>
+<figures//../../../results/exp4_3_3.png, id=433, 1349.04pt x 110.4125pt>
 File: figures//../../../results/exp4_3_3.png Graphic file (type png)
 <use figures//../../../results/exp4_3_3.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_3.png  used on input line 22.
 (pdftex.def)             Requested size: 426.79135pt x 34.93005pt.
-<figures//../../../results/exp4_3_4.png, id=405, 1336.995pt x 113.42375pt>
+<figures//../../../results/exp4_3_4.png, id=434, 1336.995pt x 113.42375pt>
 File: figures//../../../results/exp4_3_4.png Graphic file (type png)
 <use figures//../../../results/exp4_3_4.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_4.png  used on input line 28.
 (pdftex.def)             Requested size: 426.79135pt x 36.20633pt.
-) [9
+[10
 
 
 
 
- <./figures//../../../results/exp4_3_1.png> <./figures//../../../results/exp4_3_2.png> <./figures//../../../results/exp4_3_3.png>] [10 <./figures//../../../results/exp4_3_4.png>]
+ <./figures//../../../results/exp4_3_1.png> <./figures//../../../results/exp4_3_2.png> <./figures//../../../results/exp4_3_3.png>]
+<figures//../../../results/exp6_5.png, id=442, 1282.7925pt x 826.08624pt>
+File: figures//../../../results/exp6_5.png Graphic file (type png)
+<use figures//../../../results/exp6_5.png>
+Package pdftex.def Info: figures//../../../results/exp6_5.png  used on input line 36.
+(pdftex.def)             Requested size: 426.79135pt x 274.8404pt.
+) [11 <./figures//../../../results/exp4_3_4.png> <./figures//../../../results/exp6_5.png>]
 
 LaTeX Warning: Empty bibliography on input line 171.
 
 (./main.aux (./frontmatter/abstract.aux) (./frontmatter/abbrevs.aux) (./body/introduction.aux) (./body/part1_download_application.aux) (./body/part2_network_configuration.aux) (./body/conclusions.aux) (./body/references.aux) (./body/annexes.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 43051C3F29320D0F4D412CFCDCFA7819;9738.
+(rerunfilecheck)             Checksum: 14EC441569913795E2C26C4FCA1BC843;9805.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27019 strings out of 480154
- 513751 string characters out of 5893787
- 1216759 words of memory out of 5000000
- 44464 multiletter control sequences out of 15000+600000
+ 27052 strings out of 480154
+ 514375 string characters out of 5893787
+ 1217161 words of memory out of 5000000
+ 44489 multiletter control sequences out of 15000+600000
  523057 words of font info for 84 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 86i,11n,93p,819b,2759s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,93p,819b,2799s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (20 pages, 271053 bytes).
+Output written on main.pdf (21 pages, 363641 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 95 named destinations out of 1000 (max. 500000)
- 410 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 493 PDF objects out of 1000 (max. 8388607)
+ 445 compressed objects within 5 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 
