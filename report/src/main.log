@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  23 DEC 2025 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  23 DEC 2025 15:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -845,7 +845,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 13
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<figures//uporto-feup.pdf, id=209, 338.26375pt x 126.4725pt>
+<figures//uporto-feup.pdf, id=196, 338.26375pt x 126.4725pt>
 File: figures//uporto-feup.pdf Graphic file (type pdf)
 <use figures//uporto-feup.pdf>
 Package pdftex.def Info: figures//uporto-feup.pdf  used on input line 130.
@@ -905,10 +905,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
-Package acronym Info: Label `acro:NAT' newly defined as it shall be overridden
-although it is yet undefined on input line 25.
-Package acronym Info: Label `acro:ICMP' newly defined as it shall be overridden
-although it is yet undefined on input line 27.
  [3
 
 
@@ -969,25 +965,25 @@ Chapter 3.
 
 
 
-]
-Package acronym Info: Label `acro:NAT' overridden on input line 40.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ac' on input line 40.
-
-[4]
-Package acronym Info: Label `acro:ICMP' overridden on input line 44.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ac' on input line 44.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ac' on input line 48.
-
+] [4]
+Package acronym Info: Label `acro:ICMP' newly defined as it shall be overridden
+although it is yet undefined on input line 45.
+Package acronym Info: Label `acro:NAT' newly defined as it shall be overridden
+although it is yet undefined on input line 49.
+Package acronym Info: Label `acro:FTP' overridden on input line 51.
 Package acronym Info: Label `acro:IP' overridden on input line 51.
+LaTeX Font Info:    Trying to load font information for T1+pcrs on input line 56.
+ (/usr/share/texlive/texmf-dist/tex/latex/courier-scaled/t1pcrs.fd
+File: t1pcrs.fd 2004/07/09 scalable font definitions for T1/pcrs.
+)
+LaTeX Font Info:    Font shape `T1/pcrs/m/n' will be
+(Font)              scaled to size 10.40245pt on input line 56.
+
+Overfull \hbox (3.44167pt too wide) in paragraph at lines 55--57
+\T1/ptm/m/n/10.95 To con-fig-ure the DNS ser-vice on TUX2, TUX3, and TUX4, we mod-i-fied the \T1/pcrs/m/n/10.95 /etc/resolv.conf
+ []
+
+Package acronym Info: Label `acro:DNS' overridden on input line 58.
 [5]) [6]
 \openout2 = `body/conclusions.aux'.
 
@@ -1013,22 +1009,22 @@ Chapter 5.
 
  (./body/annexes.tex
 Chapter 6.
-<figures//../../../results/exp4_3_1.png, id=414, 1322.9425pt x 134.5025pt>
+<figures//../../../results/exp4_3_1.png, id=401, 1322.9425pt x 134.5025pt>
 File: figures//../../../results/exp4_3_1.png Graphic file (type png)
 <use figures//../../../results/exp4_3_1.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_1.png  used on input line 10.
 (pdftex.def)             Requested size: 426.79135pt x 43.39056pt.
-<figures//../../../results/exp4_3_2.png, id=416, 1329.96875pt x 150.5625pt>
+<figures//../../../results/exp4_3_2.png, id=403, 1329.96875pt x 150.5625pt>
 File: figures//../../../results/exp4_3_2.png Graphic file (type png)
 <use figures//../../../results/exp4_3_2.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_2.png  used on input line 16.
 (pdftex.def)             Requested size: 426.79135pt x 48.31651pt.
-<figures//../../../results/exp4_3_3.png, id=417, 1349.04pt x 110.4125pt>
+<figures//../../../results/exp4_3_3.png, id=404, 1349.04pt x 110.4125pt>
 File: figures//../../../results/exp4_3_3.png Graphic file (type png)
 <use figures//../../../results/exp4_3_3.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_3.png  used on input line 22.
 (pdftex.def)             Requested size: 426.79135pt x 34.93005pt.
-<figures//../../../results/exp4_3_4.png, id=418, 1336.995pt x 113.42375pt>
+<figures//../../../results/exp4_3_4.png, id=405, 1336.995pt x 113.42375pt>
 File: figures//../../../results/exp4_3_4.png Graphic file (type png)
 <use figures//../../../results/exp4_3_4.png>
 Package pdftex.def Info: figures//../../../results/exp4_3_4.png  used on input line 28.
@@ -1044,24 +1040,24 @@ LaTeX Warning: Empty bibliography on input line 171.
 
 (./main.aux (./frontmatter/abstract.aux) (./frontmatter/abbrevs.aux) (./body/introduction.aux) (./body/part1_download_application.aux) (./body/part2_network_configuration.aux) (./body/conclusions.aux) (./body/references.aux) (./body/annexes.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BBE21C7E3B2CCCBB608D07E025E41C78;9987.
+(rerunfilecheck)             Checksum: 43051C3F29320D0F4D412CFCDCFA7819;9738.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26998 strings out of 480154
- 513393 string characters out of 5893787
- 1217754 words of memory out of 5000000
- 44445 multiletter control sequences out of 15000+600000
- 522436 words of font info for 82 fonts, out of 8000000 for 9000
+ 27019 strings out of 480154
+ 513751 string characters out of 5893787
+ 1216759 words of memory out of 5000000
+ 44464 multiletter control sequences out of 15000+600000
+ 523057 words of font info for 84 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 86i,11n,93p,819b,2777s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (20 pages, 260763 bytes).
+ 86i,11n,93p,819b,2759s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (20 pages, 271053 bytes).
 PDF statistics:
- 472 PDF objects out of 1000 (max. 8388607)
- 429 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
- 434 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 417 compressed objects within 5 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 
