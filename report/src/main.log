@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  22 DEC 2025 19:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.14)  23 DEC 2025 12:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -990,35 +990,55 @@ Chapter 5.
 
  (./body/annexes.tex
 Chapter 6.
+<figures//../../../results/exp4_3_1.png, id=380, 1322.9425pt x 134.5025pt>
+File: figures//../../../results/exp4_3_1.png Graphic file (type png)
+<use figures//../../../results/exp4_3_1.png>
+Package pdftex.def Info: figures//../../../results/exp4_3_1.png  used on input line 10.
+(pdftex.def)             Requested size: 426.79135pt x 43.39056pt.
+<figures//../../../results/exp4_3_2.png, id=382, 1329.96875pt x 150.5625pt>
+File: figures//../../../results/exp4_3_2.png Graphic file (type png)
+<use figures//../../../results/exp4_3_2.png>
+Package pdftex.def Info: figures//../../../results/exp4_3_2.png  used on input line 16.
+(pdftex.def)             Requested size: 426.79135pt x 48.31651pt.
+<figures//../../../results/exp4_3_3.png, id=383, 1349.04pt x 110.4125pt>
+File: figures//../../../results/exp4_3_3.png Graphic file (type png)
+<use figures//../../../results/exp4_3_3.png>
+Package pdftex.def Info: figures//../../../results/exp4_3_3.png  used on input line 22.
+(pdftex.def)             Requested size: 426.79135pt x 34.93005pt.
+<figures//../../../results/exp4_3_4.png, id=384, 1336.995pt x 113.42375pt>
+File: figures//../../../results/exp4_3_4.png Graphic file (type png)
+<use figures//../../../results/exp4_3_4.png>
+Package pdftex.def Info: figures//../../../results/exp4_3_4.png  used on input line 28.
+(pdftex.def)             Requested size: 426.79135pt x 36.20633pt.
 ) [9
 
 
 
 
-]
+ <./figures//../../../results/exp4_3_1.png> <./figures//../../../results/exp4_3_2.png> <./figures//../../../results/exp4_3_3.png>] [10 <./figures//../../../results/exp4_3_4.png>]
 
 LaTeX Warning: Empty bibliography on input line 171.
 
 (./main.aux (./frontmatter/abstract.aux) (./frontmatter/abbrevs.aux) (./body/introduction.aux) (./body/part1_download_application.aux) (./body/part2_network_configuration.aux) (./body/conclusions.aux) (./body/references.aux) (./body/annexes.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1A2002D64A595C5F026BFB6D06FCC963;9484.
+(rerunfilecheck)             Checksum: 7833911F34A669EEEA605D8E22896BC5;9911.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26966 strings out of 480154
- 512010 string characters out of 5893787
- 1216996 words of memory out of 5000000
- 44431 multiletter control sequences out of 15000+600000
+ 27016 strings out of 480154
+ 513573 string characters out of 5893787
+ 1217256 words of memory out of 5000000
+ 44470 multiletter control sequences out of 15000+600000
  522436 words of font info for 82 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
  86i,11n,93p,819b,2777s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (19 pages, 76805 bytes).
+Output written on main.pdf (20 pages, 258236 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 414 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 395 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 434 words of extra memory for PDF output out of 10000 (max. 10000000)
 
