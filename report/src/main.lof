@@ -5,17 +5,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces TUX103 pinging TUX104\relax }}{14}{figure.caption.22}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces TUX103 pinging TUX104 in the same bridge\relax }}{14}{figure.caption.23}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces TUX103 pinging TUX102 in a different bridge\relax }}{15}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces TUX104 receiving broadcast ping from TUX103\relax }}{15}{figure.caption.25}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces TUX103 pinging TUX104's ether1 interface\relax }}{15}{figure.caption.26}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces TUX103 pinging TUX104's ether2 interface\relax }}{15}{figure.caption.27}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces TUX103 pinging TUX102\relax }}{15}{figure.caption.28}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces TUX104 router capturing ICMP on ether1 interface\relax }}{15}{figure.caption.29}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces TUX104 router capturing ICMP on ether2 interface\relax }}{15}{figure.caption.30}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces TUX3 pinging RC's ether2 interface\relax }}{15}{figure.caption.31}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces TUX3 pinging TUX2\relax }}{16}{figure.caption.32}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces TUX3 pinging TUX4's ether2 interface\relax }}{16}{figure.caption.33}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces TUX3 pinging TUX4's ether1 interface\relax }}{16}{figure.caption.34}%
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Changes in Throughput during concurrent FTP download\relax }}{16}{figure.caption.35}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces TUX103 pinging TUX104\relax }}{15}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces TUX103 pinging TUX104 in the same bridge\relax }}{16}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces TUX103 pinging TUX102 in a different bridge\relax }}{17}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces TUX104 receiving broadcast ping from TUX103\relax }}{18}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces TUX103 pinging TUX104's ether1 interface\relax }}{19}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces TUX103 pinging TUX104's ether2 interface\relax }}{20}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces TUX103 pinging TUX102\relax }}{21}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces TUX104 router capturing ICMP on ether1 interface\relax }}{22}{figure.caption.29}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces TUX104 router capturing ICMP on ether2 interface\relax }}{23}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces TUX3 pinging RC's ether2 interface\relax }}{23}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces TUX3 pinging TUX2\relax }}{23}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces TUX3 pinging TUX4's ether2 interface\relax }}{24}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces TUX3 pinging TUX4's ether1 interface\relax }}{24}{figure.caption.34}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Changes in Throughput during concurrent FTP download\relax }}{24}{figure.caption.35}%

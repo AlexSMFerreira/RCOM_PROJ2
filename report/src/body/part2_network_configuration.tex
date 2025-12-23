@@ -1,11 +1,11 @@
 \chapter{Part 2 -- Network Configuration and Analysis}
 
-\section{Experiment 1 - Configure an \ac{IP} Network}
+\section{Experiment 1 - Configure an \acs{IP} Network}
 
 \subsection{Network Architecture}
 For this experiment, we connected Tux103 and Tux104 to the same switch, creating a single broadcast domain. The \ac{IP} addresses were configured as specified in the project description, assigning \texttt{172.16.100.1} to Tux103 and \texttt{172.16.100.254} to Tux104, both within the \texttt{172.16.100.0/24} subnet.
 
-\subsection{\ac{IP} Configuration and Connectivity}
+\subsection{\acs{IP} Configuration and Connectivity}
 To configure the network, we accessed the terminals of both hosts and used the \texttt{ifconfig} command to assign the \ac{IP} addresses and netmasks manually. We verified the configuration by inspecting the routing table with \texttt{route $-$n}, confirming a direct connection to the local subnet. To test connectivity and observe the address resolution process, we cleared the ARP cache using \texttt{arp $-$d} and immediately executed a \texttt{ping} command while capturing traffic with Wireshark, as shown in Figure \ref{fig:exp1_1_TUX103toTUX104}.
 
 \subsection{ARP Packets and Addressing}
@@ -150,7 +150,7 @@ Every \ac{TCP} connection involves a three-way handshake process to establish th
 \ac{ARQ} is a fundamental mechanism used in \ac{TCP} to ensure reliable data transmission. It works by requiring the receiver to send acknowledgments (ACKs) back to the sender for the data packets received. If the sender does not receive an acknowledgment within a specified timeout period, it assumes that the packet was lost or corrupted and retransmits the packet. This process continues until the sender receives an acknowledgment for all sent packets, ensuring that all data is correctly received by the receiver. On duplicate ACKs, \ac{TCP} can also perform fast retransmissions to improve efficiency.
 
 The following table summarizes the key \ac{TCP} header fields involved in the \ac{ARQ} mechanism and their roles:
-\begin{table}[h!]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -176,7 +176,7 @@ The following table summarizes the key \ac{TCP} header fields involved in the \a
 
 The following table highlights the main \ac{TCP} header fields relevant to congestion control and their roles:
 
-\begin{table}[h!]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
